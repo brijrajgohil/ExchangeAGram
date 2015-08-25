@@ -6,8 +6,4 @@
 //  Copyright (c) 2015 Brijrajsinh Gohil. All rights reserved.
 //
 
-#ifndef ExchangeAGram_Bridging_Header_h
-#define ExchangeAGram_Bridging_Header_h
-
-
-#endif
+#import <Facebook/FacebookSDK.h>
