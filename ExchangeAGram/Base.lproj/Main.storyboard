@@ -59,6 +59,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="VmF-be-jmm">
+                        <barButtonItem key="leftBarButtonItem" title="Profile" id="kFu-SV-fxS"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="1dU-e9-nRa">
                             <connections>
                                 <action selector="snapBarButtonItemTapped:" destination="BYZ-38-t0r" id="8Uv-fY-Zcc"/>
@@ -67,11 +68,30 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="rjy-RA-nfb" id="o6P-Kn-kth"/>
+                        <segue destination="cEY-iX-KdO" kind="show" identifier="profileSegue" id="XOo-d8-1V3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1105" y="-515"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="zYD-ZO-vGJ">
+            <objects>
+                <viewController id="cEY-iX-KdO" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ytl-M2-GbB"/>
+                        <viewControllerLayoutGuide type="bottom" id="HBZ-Mq-KET"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="s7T-Yy-PiJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UWW-uY-Hp8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1832" y="-520"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ai9-Z9-B29">

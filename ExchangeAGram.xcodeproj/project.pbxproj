@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		59301B351B8CE35F008DE1B6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59301B341B8CE35F008DE1B6 /* FacebookSDK.framework */; };
+		59301B381B8CEA6B008DE1B6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59301B371B8CEA6B008DE1B6 /* ProfileViewController.swift */; };
 		5991F7841B876A7100BDA5C9 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5991F7831B876A7100BDA5C9 /* FeedItem.swift */; };
 		59ACC7C91B7F57BD002B34CD /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59ACC7C81B7F57BD002B34CD /* FilterViewController.swift */; };
 		59ACC7CB1B7F5CBE002B34CD /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59ACC7CA1B7F5CBE002B34CD /* FilterCell.swift */; };
@@ -32,6 +34,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		59301B341B8CE35F008DE1B6 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		59301B361B8CE75C008DE1B6 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		59301B371B8CEA6B008DE1B6 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		5991F7831B876A7100BDA5C9 /* FeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedItem.swift; path = ../FeedItem.swift; sourceTree = "<group>"; };
 		59ACC7C81B7F57BD002B34CD /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		59ACC7CA1B7F5CBE002B34CD /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
@@ -56,6 +61,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59EAFF9C1B7EF2AB0003F6F9 /* MobileCoreServices.framework in Frameworks */,
+				59301B351B8CE35F008DE1B6 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +109,8 @@
 				59B0BBA71B7E398900748025 /* FeedViewController.swift */,
 				59ACC7C81B7F57BD002B34CD /* FilterViewController.swift */,
 				59EAFF991B7EF0270003F6F9 /* FeedCell.swift */,
+				59301B371B8CEA6B008DE1B6 /* ProfileViewController.swift */,
+				59301B361B8CE75C008DE1B6 /* Bridging-Header.h */,
 				59ACC7CA1B7F5CBE002B34CD /* FilterCell.swift */,
 				59B0BB8B1B7E34A500748025 /* Main.storyboard */,
 				59B0BB8E1B7E34A500748025 /* Images.xcassets */,
@@ -116,6 +124,7 @@
 		59B0BB821B7E34A500748025 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				59301B341B8CE35F008DE1B6 /* FacebookSDK.framework */,
 				59EAFF9B1B7EF2AB0003F6F9 /* MobileCoreServices.framework */,
 				59B0BB831B7E34A500748025 /* Info.plist */,
 			);
@@ -245,6 +254,7 @@
 				59EAFF9A1B7EF0270003F6F9 /* FeedCell.swift in Sources */,
 				59B0BBA81B7E398900748025 /* FeedViewController.swift in Sources */,
 				5991F7841B876A7100BDA5C9 /* FeedItem.swift in Sources */,
+				59301B381B8CEA6B008DE1B6 /* ProfileViewController.swift in Sources */,
 				59B0BB881B7E34A500748025 /* ExchangeAGram.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,6 +380,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Apple/Documents/FacebookSDK,
+				);
 				INFOPLIST_FILE = ExchangeAGram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -380,6 +394,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Apple/Documents/FacebookSDK,
+				);
 				INFOPLIST_FILE = ExchangeAGram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
