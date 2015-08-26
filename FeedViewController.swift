@@ -9,17 +9,28 @@
 import UIKit
 import MobileCoreServices
 import CoreData
+import MapKit
 
-class FeedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class FeedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     var feedArray: [AnyObject] = []
+    
+    var locationManager: CLLocationManager!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.distanceFilter = 100.0
+        locationManager.startUpdatingLocation()
+        
         let request = NSFetchRequest(entityName: "FeedItem")
         let appDelegate: AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
         let context: NSManagedObjectContext = appDelegate.managedObjectContext!
@@ -77,7 +88,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         let image = info[UIImagePickerControllerOriginalImage] as UIImage
         let imageData = UIImageJPEGRepresentation(image, 1.0)
-        let thumbnailDate = UIImageJPEGRepresentation(image, 0.1)
+        let thumbnailData = UIImageJPEGRepresentation(image, 0.1)
         
         let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
         let entityDescription = NSEntityDescription.entityForName("FeedItem", inManagedObjectContext: managedObjectContext!)
@@ -85,6 +96,9 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         feedItem.image = imageData
         feedItem.caption = "Test Caption"
+        feedItem.thumbNail = thumbnailData
+        feedItem.latitude = locationManager.location.coordinate.latitude
+        feedItem.longitude = locationManager.location.coordinate.longitude
         
         (UIApplication.sharedApplication().delegate as AppDelegate).saveContext()
         
@@ -121,6 +135,12 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         var filterVC = FilterViewController()
         filterVC.thisFeedItem = thisItem
         self.navigationController?.pushViewController(filterVC, animated: true)
+    }
+    
+    //CLLocationManagerDelegate
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        println("Location : \(locations)")
     }
     
 }
