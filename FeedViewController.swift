@@ -27,7 +27,12 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         let backgroundImage = UIImage(named: "AutumnBackground")
         self.view.backgroundColor = UIColor(patternImage: backgroundImage!)
         
-        
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.distanceFilter = 100.0
+        locationManager.startUpdatingLocation()
         
         let request = NSFetchRequest(entityName: "FeedItem")
         let appDelegate: AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
